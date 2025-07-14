@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_reports.general_ledger_report" model="account.report">
+        <field name="name">General Ledger</field>
+        <field name="column_ids">
+            <record id="general_ledger_lead_reference" model="account.report.column">
+                <field name="name">Opportunity ID MLES</field>
+                <field name="expression_label">lead_reference</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_test_column" model="account.report.column">
+                <field name="name">MLES</field>
+                <field name="expression_label">test_column</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_group" model="account.report.column">
+                <field name="name">Group</field>
+                <field name="expression_label">move_group</field>
+                <field name="figure_type">string</field>
+            </record>
+            
+            <record id="general_ledger_prod" model="account.report.column">
+                <field name="name">Product</field>
+                <field name="expression_label">product_name</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_product_uom" model="account.report.column">
+                <field name="name">Product_uom</field>
+                <field name="expression_label">product_uom</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_move" model="account.report.column">
+                <field name="name">Move Id</field>
+                <field name="expression_label">move_id</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_move_ref" model="account.report.column">
+                <field name="name">Move Ref</field>
+                <field name="expression_label">move_ref</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_move_Type" model="account.report.column">
+                <field name="name">Move Type</field>
+                <field name="expression_label">move_type</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_account_code" model="account.report.column">
+                <field name="name">AcCode</field>
+                <field name="expression_label">account_code</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_account_name" model="account.report.column">
+                <field name="name">AcName</field>
+                <field name="expression_label">account_name</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_account_type" model="account.report.column">
+                <field name="name">AcType</field>
+                <field name="expression_label">account_type</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_journal_code" model="account.report.column">
+                <field name="name">JCode</field>
+                <field name="expression_label">journal_code</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_journal_name" model="account.report.column">
+                <field name="name">JName</field>
+                <field name="expression_label">journal_name</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="general_ledger_move_qty" model="account.report.column">
+                <field name="name">Qty</field>
+                <field name="expression_label">qty</field>
+                <field name="figure_type">string</field>
+            </record>
+        </field>
+    </record>
+</odoo>
