@@ -22,6 +22,7 @@ class AccountGeneralLedger(models.AbstractModel):
             account_name = self.env['account.account']._field_to_sql(account_alias, 'name')
             account_type = self.env['account.account']._field_to_sql(account_alias, 'account_type')
 
+            # Add product category name from product.category
             query = SQL('''
                 SELECT
                     account_move_line.id,
@@ -56,7 +57,8 @@ class AccountGeneralLedger(models.AbstractModel):
                     full_rec.id                    AS full_rec_name,
                     %(column_group_key)s           AS column_group_key,
                     account_move_line.lead_reference AS lead_reference,
-                    pt.name                        AS product_name
+                    pt.name                        AS product_name,
+                    pc.name                        AS product_category
                 FROM %(table_references)s
                 JOIN account_move move           ON move.id = account_move_line.move_id
                 %(currency_table_join)s
@@ -66,6 +68,7 @@ class AccountGeneralLedger(models.AbstractModel):
                 LEFT JOIN account_full_reconcile full_rec ON full_rec.id = account_move_line.full_reconcile_id
                 LEFT JOIN product_product pp     ON pp.id = account_move_line.product_id
                 LEFT JOIN product_template pt    ON pt.id = pp.product_tmpl_id
+                LEFT JOIN product_category pc    ON pc.id = pt.categ_id
                 LEFT JOIN uom_uom uom            ON uom.id = account_move_line.product_uom_id
                 WHERE %(search_condition)s
                 ORDER BY account_move_line.date, move.name, account_move_line.id
