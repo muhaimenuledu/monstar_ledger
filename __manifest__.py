@@ -8,7 +8,7 @@
     'data': [
         'views/account_report_view.xml',
         # 'views/account_move_line_view.xml',
-        'views/partner_ledger_view.xml',
+        # 'views/partner_ledger_view.xml',
     ],
     'installable': True,
     'auto_install': False,
